@@ -5,10 +5,22 @@
 ##############################################################################################
 
 dev-automated-push: ## Automated push
+	@echo "Automated push to dev branch to origin"
 	@git fetch origin
 	@git add .
 	@git commit -m "AUTOMATED ACTION: Saving changes..."
 	@git push -u origin dev
+
+##############################################################################################
+# Pre installs
+##############################################################################################
+# For this make commands to be functional, chocolatey must be installed in the Windows Device.
+
+os-installs:
+	
+
+
+pre-installs: ## Automated push
 
 ##############################################################################################
 # Commands
