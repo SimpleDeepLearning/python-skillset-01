@@ -5,6 +5,7 @@
 ##############################################################################################
 
 dev-automated-push: ## Automated push
+	@echo "Automated push to dev branch to origin"
 	@git fetch origin
 	@git add .
 	@git commit -m "AUTOMATED ACTION: Saving changes..."
