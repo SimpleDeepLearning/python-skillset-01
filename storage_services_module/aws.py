@@ -1,7 +1,7 @@
 class AWSManager():
     def __init__(self):
-        print()
+        print("Initiating connection...")
     def upload_file(self, file_path:str)-> None:
-        print()
+        print("Uploading file...")
     def __del__(self):
-        print()
+        print("Closing connection...")

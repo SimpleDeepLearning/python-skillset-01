@@ -19,7 +19,8 @@ To be directed to the docs main readme
 
 #### For more specific information:
 
-- AWS
-- Azure
-- Snowflake
-- Python ->
+- AWS: [further documentation](docs/AWS.md)
+- Azure: [further documentation](docs/Azure.md)
+- Snowflake: [further documentation](docs/Snowflake.md)
+- Python: [further documentation](docs/Python.md)
+- Makefile: [further documentation](docs/Makefile.md)
