@@ -1,0 +1,7 @@
+#Ignore all files in the folder
+errors/*
+executions/*
+
+# Except the .gitkeep files for the upload of the folders
+!errors/.gitkeep 
+!executions/.gitkeep 

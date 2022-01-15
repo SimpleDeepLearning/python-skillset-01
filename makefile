@@ -39,7 +39,7 @@ activate-venv: ## Activate pyvenv
 .PHONY: installations
 installations: ## Install requirements.txt into venv
 	@echo "Installing requirements.txt to Python Virtual Environment..."
-	@venv\Scripts\python -m pip install -r config/requirements.txt
+	@venv\Scripts\python -m setup.py
 
 .PHONY: upgrade-venv-pip
 upgrade-venv-pip: ## Upgrade or install pip inside venv
@@ -52,13 +52,8 @@ exit-venv: ## Exit the venv
 	@venv\Scripts\deactivate.bat\
 
 ##############################################################################################
-# Tests
+# Python Virtual Environment Test
 ##############################################################################################
-
-.PHONY: test-installations
-test-installations: ## Test venv installations
-	@echo "TESTING: Installations to requirements.txt to Python Virtual Environment..."
-	@venv\Scripts\python -m pip install -r config/requirements.txt
 
 .PHONY: test-build-venv
 test-build-venv: ## Test the build of your venv
@@ -70,4 +65,4 @@ test-build-venv: ## Test the build of your venv
 ##############################################################################################
 
 .PHONY: build-venv
-build-venv: create-venv upgrade-venv-pip installations activate-venv
+build-venv: create-venv upgrade-venv-pip installations activate-venv test-build-venv
