@@ -4,6 +4,9 @@ python:
       standard:
         - import: pandas
           install: pandas
+      test:
+        - import:
+          install:
 
       api-connection:
         - import: requests

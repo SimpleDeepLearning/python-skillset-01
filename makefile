@@ -6,6 +6,7 @@
 
 current_dir := $(realpath .)
 SETUP_PATH = ${current_dir}/setup_.py
+APP_PATH = ${current_dir}/main.py
 
 ##############################################################################################
 # Automated actions
