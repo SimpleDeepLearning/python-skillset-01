@@ -13,6 +13,7 @@ Install Chocolatey into your computer:
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
+For more information about this package manager, please direct to: https://www.github.com/miguelestradam36/chocolatey-for-windows 
 
 ### Second Step
 

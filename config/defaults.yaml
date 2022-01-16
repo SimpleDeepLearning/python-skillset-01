@@ -2,8 +2,6 @@ python:
   global:
     modules:
       standard:
-        - import: yaml
-          install: PyYaml
         - import: pandas
           install: pandas
 
@@ -14,12 +12,18 @@ python:
           install: Flask
 
   services:
-    snowflake:
     # Modules needed for this service
-      modules:
-        - import: snowflake
-          install: snowflake-connector-python[secure-local-storage,pandas]
+    modules:
+      - import: boto3
+        install: boto3
+      - import: snowflake
+        install: snowflake-connector-python[secure-local-storage,pandas]
+      - import: azure
+        install: azure
+      - import: boto3
+        install: boto3
 
+    snowflake:
       profiles:
         # Default snowflake context
         default:
@@ -30,12 +34,13 @@ python:
           database:
           schema:
     azure:
-      # Modules needed for this service
-      modules:
-        - import: azure
-          install: azure
+      profiles:
+        # Default snowflake context
+        default:
     aws:
-      # Modules needed for this service
-      modules:
-        - import: boto3
-          install: boto3
+      profiles:
+        # Default snowflake context
+        default:
+          primary_key:
+          secret_primary_key:
+          region:

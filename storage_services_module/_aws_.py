@@ -1,5 +1,4 @@
-from _snowflake_ import SnowflakeManager
-class AWSManager(SnowflakeManager):
+class AWSManager():
     def __init__(self):
         print("Initiating connection...")
     def upload_file(self, file_path:str)-> None:

@@ -1,5 +1,4 @@
-from _snowflake_ import SnowflakeManager
-class AzureManager(SnowflakeManager):
+class AzureManager():
     def __init__(self):
         print("Initiating connection...")
     def upload_file(self, file_path:str)-> None:
