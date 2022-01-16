@@ -60,6 +60,4 @@ To be directed to the docs main readme
 
 #### Author:
 
-- Miguel Estrada: 
-  - [Gmail](docs/AWS.md)
-  - [Linkedin](docs/AWS.md)
+- Miguel Estrada
