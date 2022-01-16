@@ -62,4 +62,4 @@ To be directed to the docs main readme
 
 - Miguel Estrada: 
   - [Gmail](docs/AWS.md)
-  - [Linkedin]()
+  - [Linkedin](docs/AWS.md)
