@@ -1,6 +1,13 @@
 # Demonstration Makefile
 
 ##############################################################################################
+# Variables
+##############################################################################################
+
+current_dir := $(realpath .)
+SETUP_PATH = ${current_dir}/setup_.py
+
+##############################################################################################
 # Automated actions
 ##############################################################################################
 
@@ -28,28 +35,28 @@ pre-installs: ## Automated push
 
 .PHONY: create-venv 
 create-venv: ## Create pyvenv
-	@echo "Builiding Python Virtual Environment..."
+	@echo Builiding Python Virtual Environment...
 	@python -m venv venv
 
 .PHONY: activate-venv
 activate-venv: ## Activate pyvenv
-	@echo "ENTER: Activating Python Virtual Environment..."
-	@venv\Scripts\activate.bat
+	@echo Activating Python Virtual Environment...
+	@venv\Scripts\activate
 
 .PHONY: installations
 installations: ## Install requirements.txt into venv
-	@echo "Installing requirements.txt to Python Virtual Environment..."
-	@venv\Scripts\python -m setup.py
+	@echo Installing requirements to Python Virtual Environment...
+	@venv\Scripts\python ${SETUP_PATH}
 
 .PHONY: upgrade-venv-pip
 upgrade-venv-pip: ## Upgrade or install pip inside venv
-	@echo "Updating and upgrading pip to Python Virtual Environment..."
+	@echo Updating and upgrading pip to Python Virtual Environment...
 	@venv\Scripts\python -m pip install --upgrade pip
 
 .PHONY: exit-venv
 exit-venv: ## Exit the venv
-	@echo "EXIT: Leaving Python Virtual Environment..."
-	@venv\Scripts\deactivate.bat\
+	@echo Leaving Python Virtual Environment...
+	@venv\Scripts\deactivate
 
 ##############################################################################################
 # Python Virtual Environment Test
@@ -57,7 +64,7 @@ exit-venv: ## Exit the venv
 
 .PHONY: test-build-venv
 test-build-venv: ## Test the build of your venv
-	@echo "TESTING: Build of the Python Virtual Environment"
+	@echo TESTING: Build of the Python Virtual Environment
 	@python tests\venv.py
 
 ##############################################################################################
@@ -65,4 +72,4 @@ test-build-venv: ## Test the build of your venv
 ##############################################################################################
 
 .PHONY: build-venv
-build-venv: create-venv upgrade-venv-pip installations activate-venv test-build-venv
+build-venv: create-venv upgrade-venv-pip activate-venv installations test-build-venv
