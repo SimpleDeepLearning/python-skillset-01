@@ -2,8 +2,8 @@ class SetUpExecuter():
 
     os = __import__('os')
 
-    filepath = "..\\config\\defaults.yaml"
-    venv_prefix = "venv\\Scripts\\python -m"
+    filepath = "..\\..\\config\\defaults.yaml"
+    venv_prefix = "..\\venv\\Scripts\\python -m"
 
     def __init__(self)->None:
 
