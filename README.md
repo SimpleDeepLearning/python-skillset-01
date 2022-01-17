@@ -4,6 +4,14 @@ Python development, and ar
 
 ## Needed installs
 
+### Before starting...
+
+Verify python is installed into your computer and added to the **PATH**
+
+The recommended approach in this case would be to download python manually if it is not installed in the computer.
+
+For this task, direct to the link: https://www.python.org/downloads/
+
 ### First Step
 
 Install Chocolatey into your computer:
@@ -51,4 +59,4 @@ To be directed to the docs main readme
 
 #### Author:
 
-- Miguel Estrada
+- Miguel Estrada: miguelestradam36@gmail.com
