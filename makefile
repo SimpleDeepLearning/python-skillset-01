@@ -62,7 +62,7 @@ exit-venv: ## Exit the venv
 .PHONY: test-build-venv
 test-build-venv: ## Test the build of your venv
 	@echo TESTING: Build of the Python Virtual Environment
-	@venv\Scripts\python tests\build.py
+	@venv\Scripts\pytest -q tests\build.py
 	@echo.
 
 ##############################################################################################

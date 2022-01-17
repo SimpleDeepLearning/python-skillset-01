@@ -1,39 +1,31 @@
-class VirtualEnvTester():
+import yaml
+import os
 
-    # Importing modules as attributes, to avoid import clash in case the class is needed later-on
-    os = __import__('os')
-    sys = __import__('sys')
-    subprocess = __import__('subprocess')
+# Repeated values
+filepath = "..\\config\\defaults.yaml"
+fullpath = os.path.join(os.path.dirname(__file__), filepath)
 
-    # Repeated values
-    filepath = "..\\config\\defaults.yaml"
-    venv_prefix = "venv\\Scripts\\python -m"
+with open(fullpath, 'r') as file:
+    global yaml_config
+    yaml_config = yaml.safe_load(file)
 
-    def __init__(self):
-        sys = __import__("sys")
-        if not self.run_tests:
-            sys.exit(1)
-        print("Installations succesfull")
-        sys.exit(0)
+def test_dependencies(virtualenv):
+    
+    must_installs = [
+        'pytest-virtualenv',
+        'PyYAML'
+    ]
+    installed_packages = virtualenv.installed_packages()
+    
+    for module in yaml_config["python"]["global"]["modules"]["standard"]:
+        assert module['install'] or module['import'] in installed_packages
 
-    def test_dependencies(self, virtualenv)->bool:
-        return True
+    for module in yaml_config["python"]["services"]["modules"]:
+        assert module['install'] or module['import'] in installed_packages
 
-    def test_build(self, virtualenv)->bool:
-        return True
+    for module in yaml_config["python"]["global"]["modules"]["test"]:
+        assert module['install'] or module['import'] in installed_packages
 
-    def test_executions(self, virtualenv)->bool:
-        return True
+    for module in must_installs:
+        assert module in installed_packages
 
-    def run_tests(self)->bool:
-        if not self.test_build():
-            return False
-        if not self.test_dependencies():
-            return False
-        if not self.test_executions():
-            return False
-        return True
-
-if __name__ == "__main__":
-
-    VirtualEnvTester()
