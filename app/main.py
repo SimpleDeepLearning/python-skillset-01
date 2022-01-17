@@ -23,7 +23,7 @@ class AWSTask(threading.Thread, AWSManager):
             pass
         except Exception as error:
             pass
-
+ 
 
 class AzureTask(threading.Thread, AzureManager):
     def __init__(self):
