@@ -1,8 +1,20 @@
 # Python Quick Demonstration (Windows operating system)
 
-Python development, and ar
+#### The following project is under development
+
+Python scripts development using Python Virtual Environment.
+
+Automatic VirtualEnv and Dockerfile setup through scripts and `make` commands
 
 ## Needed installs
+
+### Before starting...
+
+Verify python is installed into your computer and added to the **PATH**
+
+The recommended approach in this case would be to download python manually if it is not installed in the computer.
+
+For this task, direct to the link: https://www.python.org/downloads/
 
 ### First Step
 
@@ -13,6 +25,7 @@ Install Chocolatey into your computer:
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
+For more information about this package manager, please direct to: https://www.github.com/miguelestradam36/chocolatey-for-windows 
 
 ### Second Step
 
@@ -22,29 +35,19 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 ```bash
 chocho install make
-choco install gsudo
 ```
 
-## Description
+## How to use ?
 
-Python & Basic DevOps project for windows operating systems.
+#### Build Environment
 
-### Technologies involved
+For a first use, to automatically create the Python virtual Environment with all its functionalities, execute the command:
 
-**Operating System:**
-- Windows
+```bash
+make build-venv
+```
 
-**Programming languages:**
-- Markdown
-- Python
-- YAML
-- AWS Boto3
-- Snowflake
-- Azure
-- Makefile
-
-**Packages Manager:**
-- Chocolatey
+![make build-venv demonstration](docs/Images/build-venv.png "Example")
 
 ## Documentation 
 To be directed to the docs main readme
@@ -60,6 +63,4 @@ To be directed to the docs main readme
 
 #### Author:
 
-- Miguel Estrada: 
-  - [Gmail](docs/AWS.md)
-  - [Linkedin]()
+- Miguel Estrada: miguelestradam36@gmail.com
