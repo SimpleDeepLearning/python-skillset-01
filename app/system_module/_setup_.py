@@ -11,6 +11,7 @@ class SetUpExecuter():
         self.global_installs()
         self.install_test_modules()
         self.install_services()
+        self.install_api_modules()
 
     def global_installs(self)->None:
         print("Checking in to global installations...")
@@ -26,9 +27,22 @@ class SetUpExecuter():
         print("\n")
 
     def install_services(self)->None:
+        print("Checking in to api-connection and app installations...")
+
+        for module in self.yaml_config["python"]["global"]["modules"]["standard"]:
+            try:
+                print("Checking {} module into venv".format(module["import"]))
+                __import__(module["import"])
+            except ImportError as error:
+                print("Installing {} module into venv".format(module["install"]))
+                self.os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
+        
+        print("\n")
+
+    def install_api_modules(self)->None:
         print("Checking in to services installation...")
 
-        for module in self.yaml_config["python"]["services"]["modules"]:
+        for module in self.yaml_config["python"]["global"]["modules"]["api-connection"]:
             try:
                 print("Checking {} module into venv".format(module["import"]))
                 __import__(module["import"])

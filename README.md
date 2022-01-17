@@ -1,6 +1,10 @@
 # Python Quick Demonstration (Windows operating system)
 
-Python development, and ar
+#### The following project is under development
+
+Python scripts development using Python Virtual Environment.
+
+Automatic VirtualEnv and Dockerfile setup through scripts and `make` commands
 
 ## Needed installs
 
