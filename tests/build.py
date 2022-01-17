@@ -1,29 +1,33 @@
-import threading
-class VirtualEnvTester(threading.Thread):
+class VirtualEnvTester():
 
+    # Importing modules as attributes, to avoid import clash in case the class is needed later-on
+    os = __import__('os')
+    sys = __import__('sys')
+    subprocess = __import__('subprocess')
+
+    # Repeated values
     filepath = "..\\config\\defaults.yaml"
     venv_prefix = "venv\\Scripts\\python -m"
 
     def __init__(self):
-        threading.Thread.__init__(self)
+        sys = __import__("sys")
+        if not self.run_tests:
+            sys.exit(1)
+        sys.exit(0)
 
-    def __del__(self):
-        pass
+    def test_dependencies(self, venv)->bool:
+        return True
 
-    def test_dependencies(self)->None:
-        pass
+    def test_build(self, venv)->bool:
+        return True
 
-    def test_build(self)->None:
-        pass
+    def run_tests(self)->bool:
+        if not self.test_build():
+            return False
+        if not self.test_dependencies():
+            return False
+        return True
 
-import os
-import sys
+if __name__ == "__main__":
 
-venvdir = os.getenv('VIRTUAL_ENV')
-
-if venvdir and os.path.isdir(venvdir):
-    print("python3 virtual-env detected: %s" % venvdir)
-    sys.exit(0)
-else:
-    print("python3 not in a virtual env")
-    sys.exit(1)
+    VirtualEnvTester()
