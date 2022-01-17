@@ -41,7 +41,7 @@ Python & Basic DevOps project for windows operating systems.
 
 - [Azure Usage Documentation](Azure.md)
   - In this document, you wil find information about the `azure` connector for python
-  - 
+
 - [Makefile Documentation](Makefile.md)
   - In this document, you wil find information about the `make` commands used in the project.
 
