@@ -7,6 +7,7 @@
 current_dir := $(realpath .)
 SETUP_PATH = ${current_dir}/setup_.py
 APP_PATH = ${current_dir}/main.py
+BUILD_TEST_PATH = ${current_dir}/tests/build.py
 
 ##############################################################################################
 # Automated actions
@@ -19,16 +20,6 @@ dev-automated-push: ## Automated push
 	@git commit -m "AUTOMATED ACTION: Saving changes..."
 	@git push -u origin dev
 
-##############################################################################################
-# Pre installs
-##############################################################################################
-# For this make commands to be functional, chocolatey must be installed in the Windows Device.
-
-os-installs:
-	
-
-
-pre-installs: ## Automated push
 
 ##############################################################################################
 # Commands
