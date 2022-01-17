@@ -23,29 +23,17 @@ For more information about this package manager, please direct to: https://www.g
 
 ```bash
 chocho install make
-choco install gsudo
 ```
 
-## Description
+## How to use ?
 
-Python & Basic DevOps project for windows operating systems.
+For a first use, to automatically create the Python virtual Environment with all its functionalities, execute the command:
 
-### Technologies involved
+```bash
+make build-venv
+```
 
-**Operating System:**
-- Windows
-
-**Programming languages:**
-- Markdown
-- Python
-- YAML
-- AWS Boto3
-- Snowflake
-- Azure
-- Makefile
-
-**Packages Manager:**
-- Chocolatey
+![make build-venv demonstration](docs/Images/build-venv.png "Example")
 
 ## Documentation 
 To be directed to the docs main readme
