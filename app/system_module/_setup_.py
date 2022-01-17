@@ -1,12 +1,15 @@
 class SetUpExecuter():
 
     os = __import__('os')
+    sys = __import__('sys')
 
     filepath = "..\\..\\config\\defaults.yaml"
     venv_prefix = "..\\venv\\Scripts\\python -m"
 
     def __init__(self)->None:
-
+        build_type = self.sys.argv[1]
+        if build_type == 'docker':
+            self.venv_prefix = 'python -m'
         self.read_defaults()
         self.global_installs()
         self.install_test_modules()
