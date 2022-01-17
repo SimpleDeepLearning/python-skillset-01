@@ -5,8 +5,8 @@ python:
         - import: pandas
           install: pandas
       test:
-        - import:
-          install:
+        - import: pytest
+          install: pytest
 
       api-connection:
         - import: requests
