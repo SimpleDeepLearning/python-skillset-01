@@ -13,18 +13,24 @@ class VirtualEnvTester():
         sys = __import__("sys")
         if not self.run_tests:
             sys.exit(1)
+        print("Installations succesfull")
         sys.exit(0)
 
-    def test_dependencies(self, venv)->bool:
+    def test_dependencies(self, virtualenv)->bool:
         return True
 
-    def test_build(self, venv)->bool:
+    def test_build(self, virtualenv)->bool:
+        return True
+
+    def test_executions(self, virtualenv)->bool:
         return True
 
     def run_tests(self)->bool:
         if not self.test_build():
             return False
         if not self.test_dependencies():
+            return False
+        if not self.test_executions():
             return False
         return True
 

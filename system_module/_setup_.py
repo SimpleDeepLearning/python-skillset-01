@@ -1,12 +1,15 @@
-import os
-
 class SetUpExecuter():
+
+    os = __import__('os')
+
     filepath = "..\\config\\defaults.yaml"
     venv_prefix = "venv\\Scripts\\python -m"
+
     def __init__(self)->None:
 
         self.read_defaults()
         self.global_installs()
+        self.install_test_modules()
         self.install_services()
 
     def global_installs(self)->None:
@@ -18,7 +21,7 @@ class SetUpExecuter():
                 __import__(module["import"])
             except ImportError as error:
                 print("Installing {} module into venv".format(module["install"]))
-                os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
+                self.os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
         
         print("\n")
 
@@ -31,12 +34,22 @@ class SetUpExecuter():
                 __import__(module["import"])
             except ImportError as error:
                 print("Installing {} module into venv".format(module["install"]))
-                os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
+                self.os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
         
         print("\n")
 
     def install_test_modules(self)->None:
         print("Checking in to services installation...")
+
+        import sys
+
+        module_ = 'pytest-virtualenv'
+
+        if module_ in sys.modules:
+            print("Checking {} module into venv".format(module_))
+        else:
+            print("Installing {} module into venv".format(module_))
+            self.os.system("{} pip install {}".format(self.venv_prefix, module_))    
 
         for module in self.yaml_config["python"]["global"]["modules"]["test"]:
             try:
@@ -44,20 +57,20 @@ class SetUpExecuter():
                 __import__(module["import"])
             except ImportError as error:
                 print("Installing {} module into venv".format(module["install"]))
-                os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
+                self.os.system("{} pip install {}".format(self.venv_prefix, module["install"]))
         
         print("\n")
 
     def read_defaults(self)->None:
 
-        fullpath = os.path.join(os.path.dirname(__file__), self.filepath)
+        fullpath = self.os.path.join(self.os.path.dirname(__file__), self.filepath)
 
         try:
             print("Checking {} module into venv".format("yaml"))
             assert __import__("yaml")
         except ImportError as error:
             print("Installing {} module into venv".format("PyYAML"))
-            os.system("{} pip install {}".format(self.venv_prefix,"PyYAML"))
+            self.os.system("{} pip install {}".format(self.venv_prefix,"PyYAML"))
         finally:
             yaml = __import__("yaml")
         
