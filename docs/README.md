@@ -49,7 +49,7 @@ Python & Basic DevOps project for windows operating systems.
   - In this document, you wil find information about the `tests`, `setup` and `services` scripts in the project.
 
 - [Snowflake Documentation](Snowflake.md)
-  - In this document, you wil find information about the `tests`, `setup` and `services` scripts in the project.
+  - In this document, you wil find information about the `snowflake-connector` used to connect to Snowflake.
 
 ### Go back to main directory of the project
 
