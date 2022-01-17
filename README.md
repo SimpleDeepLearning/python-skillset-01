@@ -27,6 +27,8 @@ chocho install make
 
 ## How to use ?
 
+#### Build Environment
+
 For a first use, to automatically create the Python virtual Environment with all its functionalities, execute the command:
 
 ```bash
