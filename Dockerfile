@@ -10,8 +10,6 @@ COPY tests/ tests/
 COPY conftest.py conftest.py
 COPY setup_.py setup_.py
 
-CMD ["python","-m","venv","venv"]
-
-CMD ["python","setup_.py"]
+CMD ["python","setup_.py", "docker"]
 
 CMD ["python","app/main.py"]

@@ -4,7 +4,7 @@
 
 Python scripts development using Python Virtual Environment.
 
-Automatic VirtualEnv and Dockerfile setup through scripts and `make` commands
+Automatic VirtualEnv and Dockerfile setup through scripts and `make`  commands
 
 ## Needed installs
 
